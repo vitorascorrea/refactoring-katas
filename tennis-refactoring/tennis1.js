@@ -1,13 +1,9 @@
 'use strict';
 
 function getScore(m_score1, m_score2) {
-    if (m_score1 === m_score2) {
-        return getTies(m_score1);
-    } else if (m_score1 >= 4 || m_score2 >= 4) {
-        return getEndGame(m_score1, m_score2);
-    } else {
-        return getWordScore(m_score1, m_score2);
-    }
+    if (m_score1 === m_score2) return getTies(m_score1);
+    if (m_score1 >= 4 || m_score2 >= 4) return getEndGame(m_score1, m_score2);
+    return getWordScore(m_score1, m_score2);
 }
 
 function getTies(tied_score) {
@@ -35,15 +31,11 @@ function numberScoreToWord(score) {
 }
 
 function getEndGame(m_score1, m_score2) {
-    let score = "";
-
     var minusResult = m_score1 - m_score2;
-    if (minusResult === 1) { score = "Advantage player1"; }
-    else if (minusResult === -1) { score = "Advantage player2"; }
-    else if (minusResult >= 2) { score = "Win for player1"; }
-    else { score = "Win for player2"; }
-
-    return score;
+    if (minusResult === 1) return "Advantage player1";
+    if (minusResult === -1) return "Advantage player2";
+    if (minusResult >= 2) return "Win for player1";
+    return "Win for player2";
 }
 
 module.exports = getScore;
