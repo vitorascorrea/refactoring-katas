@@ -25,7 +25,7 @@ class GildedRoseItem {
   }
 
   updateSpecificQuality() {
-    throw new Error("Method 'updateQuality()' must be implemented.");
+    throw new Error("Method 'updateSpecificQuality()' must be implemented.");
   }
 }
 
